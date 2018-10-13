@@ -7,10 +7,10 @@ const phrase = (
 ) => {
     console.log(action.type)
     switch(action.type) {
-        case 'SET_TEMP_PHRASE':
+        case 'SET_PRASE_INPUT':
             return {
                 ...state,
-                temp: action.temp,
+                input: action.temp,
                 isSet: false
             }
         case 'SET_PHRASE':
@@ -23,7 +23,7 @@ const phrase = (
             return {
                 ...state,
                 phrase: undefined,
-                temp: undefined,
+                input: undefined,
                 isSet: false
             }
         case 'PHRASE_ERROR':

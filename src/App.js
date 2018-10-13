@@ -10,9 +10,10 @@ import { connect } from 'react-redux';
 
 import "./App.scss";
 import hasPhrase from './helpers/hasPhrase';
-import setTempPhrase from './action_creators/setTempPhrase';
+import setPhraseInput from './action_creators/setPhraseInput';
 import setPhrase from './action_creators/setPhrase';
 import clearPhrase from './action_creators/clearPhrase';
+import setTemplate from './action_creators/setTemplate';
 
 const mapStateToProps = (state) => ({
   phrase: state.phrase
@@ -29,11 +30,11 @@ const App = ({
         <form>
           <h1>Set Hangman Puzzle</h1>
           <div class="phrase-input-container">
-            <input type="text" id="phrase-input" name="phrase" onChange={(e) => dispatch(setTempPhrase(e.target.value))}/>
+            <input type="text" id="phrase-input" name="phrase" onChange={(e) => dispatch(setPhraseInput(e.target.value))}/>
           </div>
           <button onClick={(e) => {
             e.preventDefault();
-            dispatch(setPhrase(phrase.temp))
+            dispatch([setPhrase(phrase.input), setTemplate(phrase.input)]);
             }
           }>Set Phrase</button>
           <button onClick={(e) => {
