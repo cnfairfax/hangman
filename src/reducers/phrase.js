@@ -7,7 +7,7 @@ const phrase = (
 ) => {
     console.log(action.type)
     switch(action.type) {
-        case 'SET_PRASE_INPUT':
+        case 'SET_PHRASE_INPUT':
             return {
                 ...state,
                 input: action.temp,

@@ -22,11 +22,24 @@
     color: #61dafb;
   }
   
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
+  .puzzle-phrase {
+    display: flex;
+    font-family: 'roboto', sans-serif;
+    font-size: 2em;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  
+    .puzzle-piece {
+        display: flex;
+        min-width: 50px;
+        height: 50px;
+        justify-content: center;
+        align-items: flex-end;
     }
-    to {
-      transform: rotate(360deg);
+  
+    .puzzle-blank {
+      border-bottom: 5px solid #555;
+      margin: auto 3px;
     }
   }
