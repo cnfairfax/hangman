@@ -34,7 +34,6 @@ const App = ({
           { /* button that sets the phrase in the store */ }
           <button onClick={(e) => {
             e.preventDefault();
-            //This only needs to be setPhrase. setPhrase needs to be refactored to reflect setTemplate's current logic
             dispatch(setPhrase(phrase.input));
             }
           }>Set Phrase</button>
@@ -49,6 +48,7 @@ const App = ({
     );
   }
 
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   return (
     <BrowserRouter>
       <div className="container">
@@ -59,7 +59,14 @@ const App = ({
           </ul>
         </div>
         <div className="content page">
-          <div class="puzzle-phrase">
+          <div className="guess-block">
+            {
+              alphabet.map((item, index) => {
+                return <button data-letter={item} className="guess-button">{item}</button>
+              })
+            }
+          </div>
+          <div className="puzzle-phrase">
             { // Build the phrase in the DOM, will reflect new phrase structure
               phrase.phrase.map((item, index) => {
               var itemClass;

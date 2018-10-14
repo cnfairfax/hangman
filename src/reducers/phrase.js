@@ -5,7 +5,6 @@ const phrase = (
     },
     action
 ) => {
-    console.log(action.type)
     switch(action.type) {
         case 'SET_PHRASE_INPUT':
             return {
@@ -25,6 +24,11 @@ const phrase = (
                 phrase: undefined,
                 input: undefined,
                 isSet: false
+            }
+        case 'CORRECT_PHRASE_GUESS':
+            return {
+                ...state,
+                correctGuesses: [...state.correctGuesses, action.guess]
             }
         case 'PHRASE_ERROR':
             return {
