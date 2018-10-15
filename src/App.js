@@ -13,6 +13,26 @@ import hasPhrase from './helpers/hasPhrase';
 import setPhraseInput from './action_creators/setPhraseInput';
 import setPhrase from './action_creators/setPhrase';
 import clearPhrase from './action_creators/clearPhrase';
+import phraseGuess from './action_creators/phraseGuess';
+
+const hasWon = (phrase) => {
+  let won = phrase.phrase.every((item) => {
+    if(item.type === 'punctuation' || item.type === 'space') return true
+
+    return phrase.correctGuesses.includes(item.key.toLowerCase())
+  })
+
+  return won
+}
+
+// phrase.misses currently not properly tallying
+const hasLost = (phrase) => {
+  if(phrase.misses >= 5) {
+    return true
+  } else {
+    return false
+  }
+}
 
 const mapStateToProps = (state) => ({
   phrase: state.phrase
@@ -62,7 +82,14 @@ const App = ({
           <div className="guess-block">
             {
               alphabet.map((item, index) => {
-                return <button data-letter={item} className="guess-button">{item}</button>
+                var classname = "guess-button";
+                if(phrase.correctGuesses.includes(item.toLowerCase())) classname += " guessed-right";
+                if(phrase.wrongGuesses.includes(item.toLowerCase())) classname += " guessed-wrong";
+                return <button data-letter={ item } onClick={(e) => {
+                  e.preventDefault();
+                  const guess = e.target.getAttribute('data-letter').toLowerCase();
+                  dispatch(phraseGuess(guess, phrase.phrase));
+                }} className={ classname } key={ index }>{ item }</button>
               })
             }
           </div>
@@ -75,13 +102,14 @@ const App = ({
                 itemClass = "puzzle-block";
                 displayItem = item.key;
               } else if (item.type === "letter") {
-                console.log('LETTER: ' + item.key);
                 itemClass = "puzzle-blank";
-                displayItem = " ";
+                displayItem = phrase.correctGuesses.includes(item.key.toLowerCase()) ? item.key : " ";
               }
               return <span key={ index } className={ itemClass + " puzzle-piece" }>{ displayItem }</span>
             })}
           </div>
+          { hasWon(phrase) && <div>YOU WON!</div> }
+          { hasLost(phrase) && <div>You lost...</div> }
         </div>
       </div>
     </BrowserRouter>

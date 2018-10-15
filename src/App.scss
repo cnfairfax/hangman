@@ -47,3 +47,11 @@
       margin: auto 3px;
     }
   }
+
+  .guessed-right {
+      background-color: green;
+  }
+
+  .guessed-wrong {
+      background-color: red;
+  }

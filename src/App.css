@@ -37,3 +37,9 @@
   .puzzle-phrase .puzzle-blank {
     border-bottom: 5px solid #555;
     margin: auto 3px; }
+
+.guessed-right {
+  background-color: green; }
+
+.guessed-wrong {
+  background-color: red; }
