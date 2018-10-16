@@ -15,6 +15,8 @@ import setPhrase from './action_creators/setPhrase';
 import clearPhrase from './action_creators/clearPhrase';
 import phraseGuess from './action_creators/phraseGuess';
 
+import SetPhraseForm from './container_components/SetPhraseForm';
+
 const hasWon = (phrase) => {
   let won = phrase.phrase.every((item) => {
     if(item.type === 'punctuation' || item.type === 'space') return true
@@ -42,32 +44,13 @@ const App = ({
   dispatch,
   phrase
 }) => {
-    
+  
   if(!hasPhrase(phrase)) {
-    return (
-      <div>
-        <form>
-          <h1>Set Hangman Puzzle</h1>
-          <div class="phrase-input-container">
-            <input type="text" id="phrase-input" name="phrase" onChange={(e) => dispatch(setPhraseInput(e.target.value))}/>
-          </div>
-          { /* button that sets the phrase in the store */ }
-          <button onClick={(e) => {
-            e.preventDefault();
-            dispatch(setPhrase(phrase.input));
-            }
-          }>Set Phrase</button>
-          { /* button that resets the phrase in the store */ }
-          <button onClick={(e) => {
-            e.preventDefault();
-            dispatch(clearPhrase());
-            document.getElementById("phrase-input").value = "";
-          }}>Clear Phrase</button>
-        </form>
-      </div>
-    );
+    return (<SetPhraseForm />);
   }
 
+  const Lost = hasLost(phrase);
+  const Won = hasWon(phrase);
   var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   return (
     <BrowserRouter>
@@ -79,6 +62,7 @@ const App = ({
           </ul>
         </div>
         <div className="content page">
+        { !Lost && !Won &&
           <div className="guess-block">
             {
               alphabet.map((item, index) => {
@@ -93,6 +77,7 @@ const App = ({
               })
             }
           </div>
+        }
           <div className="puzzle-phrase">
             { // Build the phrase in the DOM, will reflect new phrase structure
               phrase.phrase.map((item, index) => {
@@ -108,8 +93,8 @@ const App = ({
               return <span key={ index } className={ itemClass + " puzzle-piece" }>{ displayItem }</span>
             })}
           </div>
-          { hasWon(phrase) && <div>YOU WON!</div> }
-          { hasLost(phrase) && <div>You lost...</div> }
+          { Won && <div>YOU WON!</div> }
+          { Lost && <div>You lost...</div> }
         </div>
       </div>
     </BrowserRouter>

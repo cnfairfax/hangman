@@ -36,7 +36,8 @@ const phrase = (
             }
         // not triggering properly
         case'WRONG_PHRASE_GUESS':
-            let misses = state.misses++
+            let misses = state.misses + 1
+            console.log('NUMBER OF MISSES: ' + misses)
             return {
                 ...state,
                 wrongGuesses: [...state.wrongGuesses, action.guess],

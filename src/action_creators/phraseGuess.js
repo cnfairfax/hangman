@@ -9,6 +9,7 @@ const phraseGuess = (guess, phrase) => {
         } 
     }
 
+    console.log('Wrong Guess: ' + guess)
     return {
         type: 'WRONG_PHRASE_GUESS',
         guess

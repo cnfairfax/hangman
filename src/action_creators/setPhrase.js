@@ -22,6 +22,8 @@ const setPhrase = (value) => {
                 index: index
             }
         }
+
+        return undefined;
     })
 
     if(templateArr.includes(undefined)) {

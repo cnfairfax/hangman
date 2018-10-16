@@ -22,8 +22,15 @@
     color: #61dafb;
   }
 
-  .content {
+  .content, .container{
       display: flex;
+  }
+
+  .container {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
   }
   
   .puzzle-phrase {
@@ -54,4 +61,14 @@
 
   .guessed-wrong {
       background-color: red;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    input {
+        width: 100%;
+    }
   }
