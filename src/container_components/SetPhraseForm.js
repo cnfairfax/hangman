@@ -17,21 +17,23 @@ const SetPhraseForm = ({
         <div className="container">
           <form id="set-phrase-form">
             <h1>Set Hangman Puzzle</h1>
-            <div class="phrase-input-container">
+            <div className="phrase-input-container">
               <input type="text" id="phrase-input" name="phrase" onChange={(e) => dispatch(setPhraseInput(e.target.value))}/>
             </div>
-            { /* button that sets the phrase in the store */ }
-            <button onClick={(e) => {
-              e.preventDefault();
-              dispatch(setPhrase(phrase.input));
-              }
-            }>Set Phrase</button>
-            { /* button that resets the phrase in the store */ }
-            <button onClick={(e) => {
-              e.preventDefault();
-              dispatch(clearPhrase());
-              document.getElementById("phrase-input").value = "";
-            }}>Clear Phrase</button>
+            <div className="buttons">
+              { /* button that sets the phrase in the store */ }
+              <button onClick={(e) => {
+                e.preventDefault();
+                dispatch(setPhrase(phrase.input));
+                }
+              } id="phrase-setter">Set Phrase</button>
+              { /* button that resets the phrase in the store */ }
+              <button onClick={(e) => {
+                e.preventDefault();
+                dispatch(clearPhrase());
+                document.getElementById("phrase-input").value = "";
+              }} id="phrase-clearer">Clear Phrase</button>
+            </div>
           </form>
         </div>
     );
