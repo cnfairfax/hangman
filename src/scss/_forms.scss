@@ -31,10 +31,19 @@ form {
         }
 
         label {
-            width: 100%;
+            display: block;
+            font-size: 1.5em;
+            min-width: 100%;
             text-align: left;
         }
     }
+}
+
+.error {
+    width: 100%;
+    background-color: rgba( $lightRed, .1);
+    color: $red;
+    font-size: 1.5em;
 }
 
 .button-block {

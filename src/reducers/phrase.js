@@ -9,12 +9,6 @@ const phrase = (
     action
 ) => {
     switch(action.type) {
-        case 'SET_PHRASE_INPUT':
-            return {
-                ...state,
-                input: action.temp,
-                isSet: false
-            }
         case 'SET_PHRASE':
             return {
                 ...state,
@@ -25,7 +19,6 @@ const phrase = (
             return {
                 ...state,
                 phrase: undefined,
-                input: undefined,
                 isSet: false
             }
         case 'CORRECT_PHRASE_GUESS':
@@ -40,7 +33,7 @@ const phrase = (
                 wrongGuesses: [...state.wrongGuesses, action.guess],
                 misses
             }
-        case 'PHRASE_ERROR':
+        case 'SET_PHRASE_ERROR':
             return {
                 ...state,
                 error: action.errMsg,

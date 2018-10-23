@@ -9,8 +9,8 @@ const GuessBlock = ({dispatch, phrase}) => (
         {
             alphabet.map((item, index) => {
                 var classname = "guess-button";
-                if(phrase.correctGuesses.includes(item.toLowerCase())) classname += " guessed-right";
-                if(phrase.wrongGuesses.includes(item.toLowerCase())) classname += " guessed-wrong";
+                if(phrase.correctGuesses.includes(item.toLowerCase())) classname += " right";
+                if(phrase.wrongGuesses.includes(item.toLowerCase())) classname += " wrong";
                 return <button data-letter={ item } onClick={(e) => {
                     e.preventDefault();
                     const guess = e.target.getAttribute('data-letter').toLowerCase();

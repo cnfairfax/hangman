@@ -1,7 +1,5 @@
-const clearPhrase = () => {
-    return {
-        type: 'CLEAR_PHRASE'
-    }
-}
+const clearPhrase = () => ({
+    type: 'CLEAR_PHRASE'
+})
 
 export default clearPhrase

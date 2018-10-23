@@ -1,7 +1,7 @@
 const setPhrase = (value) => {
     var templateArr;
     
-    if(!value.puzzleId) {
+    if(typeof value !== 'object' && !value.hasOwnProperty('puzzleID')) {
         templateArr = value.split('').map((item, index) => {
             // regex to select for alphabetical characters
             if(item.match(/[a-zA-Z]/)) {

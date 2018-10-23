@@ -40,12 +40,12 @@ const Play = ({
                             itemClass = "letter";
                             displayItem = phrase.correctGuesses.includes(item.key.toLowerCase()) ? item.key : " ";
                         }
-                        return <span key={ index } className={ itemClass + " puzzle-piece" }>{ displayItem }</span>
+                        return <span key={ index } className={ itemClass + " piece" }>{ displayItem }</span>
                     })
                 }
             </div>
-            { Won && <div>YOU WON!</div> }
-            { Lost && <div>You lost...</div> }
+            { Won && <div className="done-block"><span className="status win">YOU WON!</span><div className="button-block"><button className="go large">Play Again</button></div></div> }
+            { Lost && <div className="done-block"><span className="status loss">You lost...</span><div className="button-block"><button className="go large">Play Again</button></div></div> }
         </div>
     );
 }
