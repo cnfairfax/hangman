@@ -62,15 +62,26 @@ form {
   flex-direction: column;
   max-width: 100%;
   text-align: center; }
-  form input {
+  form .input-row {
     width: 100%;
-    font-size: 2em;
-    border: none;
-    border-bottom: 5px solid #555;
-    padding: 5px;
-    text-align: center; }
-    form input:focus {
-      outline: none; }
+    flex-direction: row; }
+  form .input-container {
+    width: 100%;
+    flex-direction: column; }
+    form .input-container.small {
+      width: 49%; }
+    form .input-container input {
+      width: 100%;
+      font-size: 2em;
+      border: none;
+      border-bottom: 5px solid #555;
+      padding: 5px;
+      text-align: center; }
+      form .input-container input:focus {
+        outline: none; }
+    form .input-container label {
+      width: 100%;
+      text-align: left; }
 
 .button-block {
   display: flex;
@@ -87,19 +98,19 @@ form {
     color: #fff;
     transition: all .5s ease; }
     .button-block button.large {
-      min-width: 100%;
+      width: 100%;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 15px; }
-    .button-block button#phrase-setter {
-      background-color: #33aa31;
+    .button-block button.medium {
       min-width: 50%; }
-      .button-block button#phrase-setter:hover {
+    .button-block button.go {
+      background-color: #33aa31; }
+      .button-block button.go:hover {
         cursor: pointer;
         background-color: #555; }
-    .button-block button#phrase-clearer {
-      background-color: rgba(244, 66, 96, 0.9);
-      min-width: 25%; }
-      .button-block button#phrase-clearer:hover {
+    .button-block button.stop {
+      background-color: rgba(244, 66, 96, 0.9); }
+      .button-block button.stop:hover {
         cursor: pointer;
         background-color: #555; }

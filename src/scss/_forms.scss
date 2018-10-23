@@ -4,16 +4,35 @@ form {
     max-width: 100%;
     text-align: center;
 
-    input {
+    .input-row {
         width: 100%;
-        font-size: 2em;
-        border: none;
-        border-bottom: 5px solid $grey;
-        padding: 5px;
-        text-align: center;
+        flex-direction: row;
+    }
 
-        &:focus {
-            outline: none;
+    .input-container {
+        width: 100%;
+        flex-direction: column;
+
+        &.small {
+            width: 49%;
+        }
+
+        input {
+            width: 100%;
+            font-size: 2em;
+            border: none;
+            border-bottom: 5px solid $grey;
+            padding: 5px;
+            text-align: center;
+    
+            &:focus {
+                outline: none;
+            }
+        }
+
+        label {
+            width: 100%;
+            text-align: left;
         }
     }
 }
@@ -35,15 +54,18 @@ form {
         transition: all .5s ease;
 
         &.large {
-            min-width: 100%;
+            width: 100%;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
         }
 
-        &#phrase-setter {
-            background-color: $green;
+        &.medium {
             min-width: 50%;
+        }
+
+        &.go {
+            background-color: $green;
 
             &:hover {
                 cursor: pointer;
@@ -51,9 +73,8 @@ form {
             }
         }
 
-        &#phrase-clearer {
+        &.stop {
             background-color: $red;
-            min-width: 25%;
 
             &:hover {
                 cursor: pointer;
