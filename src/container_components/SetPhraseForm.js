@@ -20,19 +20,19 @@ const SetPhraseForm = ({
             <div className="phrase-input-container">
               <input type="text" id="phrase-input" name="phrase" onChange={(e) => dispatch(setPhraseInput(e.target.value))}/>
             </div>
-            <div className="buttons">
+            <div className="button-block">
               { /* button that sets the phrase in the store */ }
               <button onClick={(e) => {
                 e.preventDefault();
                 dispatch(setPhrase(phrase.input));
                 }
-              } id="phrase-setter">Set Phrase</button>
+              } id="phrase-setter" className="large">Set Phrase</button>
               { /* button that resets the phrase in the store */ }
               <button onClick={(e) => {
                 e.preventDefault();
                 dispatch(clearPhrase());
                 document.getElementById("phrase-input").value = "";
-              }} id="phrase-clearer">Clear Phrase</button>
+              }} id="phrase-clearer" className="large">Clear Phrase</button>
             </div>
           </form>
         </div>

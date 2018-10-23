@@ -22,23 +22,40 @@ body * {
     list-style: none;
     margin-left: 5px; }
 
+.play-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+
 .puzzle-phrase {
   display: flex;
-  font-family: 'roboto', sans-serif;
   font-size: 2em;
   width: 100%;
   justify-content: center;
   align-items: center;
   color: #555; }
-  .puzzle-phrase .puzzle-piece {
+  .puzzle-phrase .piece {
     display: flex;
     min-width: 50px;
     height: 50px;
     justify-content: center;
     align-items: flex-end; }
-  .puzzle-phrase .puzzle-blank {
+  .puzzle-phrase .letter {
     border-bottom: 5px solid #555;
     margin: auto 3px; }
+
+.guess-block {
+  display: flex;
+  max-width: 25%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; }
+  .guess-block .guess-button {
+    font-size: 1.1em;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-right: 10px; }
 
 form {
   display: flex;
@@ -54,46 +71,35 @@ form {
     text-align: center; }
     form input:focus {
       outline: none; }
-  form .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px; }
-    form .buttons button {
-      font-size: 1.5em;
-      padding: 15px;
-      border-radius: 3px;
-      border: none;
-      color: #fff;
-      transition: all .5s ease; }
-      form .buttons button#phrase-setter {
-        background-color: #33aa31;
-        min-width: 50%; }
-        form .buttons button#phrase-setter:hover {
-          cursor: pointer;
-          background-color: #555; }
-      form .buttons button#phrase-clearer {
-        background-color: rgba(244, 66, 96, 0.9);
-        min-width: 25%; }
-        form .buttons button#phrase-clearer:hover {
-          cursor: pointer;
-          background-color: #555; }
 
-.play-container {
+.button-block {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between; }
-
-.guess-block {
-  display: flex;
-  max-width: 25%;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center; }
-  .guess-block .guess-button {
-    font-size: 1.1em;
-    padding: 5px 10px;
-    margin-top: 10px;
-    margin-right: 10px; }
+  margin-top: 30px; }
+  .button-block button {
+    font-size: 1.5em;
+    padding: 15px;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    transition: all .5s ease; }
+    .button-block button.large {
+      min-width: 100%;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px; }
+    .button-block button#phrase-setter {
+      background-color: #33aa31;
+      min-width: 50%; }
+      .button-block button#phrase-setter:hover {
+        cursor: pointer;
+        background-color: #555; }
+    .button-block button#phrase-clearer {
+      background-color: rgba(244, 66, 96, 0.9);
+      min-width: 25%; }
+      .button-block button#phrase-clearer:hover {
+        cursor: pointer;
+        background-color: #555; }

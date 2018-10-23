@@ -1,0 +1,65 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    text-align: center;
+
+    input {
+        width: 100%;
+        font-size: 2em;
+        border: none;
+        border-bottom: 5px solid $grey;
+        padding: 5px;
+        text-align: center;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.button-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+
+    button {
+        font-size: 1.5em;
+        padding: 15px;
+        border-radius: 3px;
+        border: none;
+        color: $white;
+        transition: all .5s ease;
+
+        &.large {
+            min-width: 100%;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        &#phrase-setter {
+            background-color: $green;
+            min-width: 50%;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $grey;
+            }
+        }
+
+        &#phrase-clearer {
+            background-color: $red;
+            min-width: 25%;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $grey;
+            }
+        }
+
+    }
+}

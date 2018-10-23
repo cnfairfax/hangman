@@ -34,10 +34,10 @@ const Play = ({
                         var itemClass;
                         var displayItem;
                         if(item.type === "punctuation" || item.type === "space") {
-                            itemClass = "puzzle-block";
+                            itemClass = "block";
                             displayItem = item.key;
                         } else if (item.type === "letter") {
-                            itemClass = "puzzle-blank";
+                            itemClass = "letter";
                             displayItem = phrase.correctGuesses.includes(item.key.toLowerCase()) ? item.key : " ";
                         }
                         return <span key={ index } className={ itemClass + " puzzle-piece" }>{ displayItem }</span>
