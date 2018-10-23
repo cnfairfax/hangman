@@ -1,0 +1,16 @@
+body * {
+    box-sizing: border-box;
+    font-family: $fontStack;
+}
+
+.content, .container{
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SetPhraseForm from './SetPhraseForm';
 
-import phraseGuess from '../action_creators/phraseGuess';
-
 import { hasLost, hasWon } from '../helpers/win-loss';
 import hasPhrase from '../helpers/hasPhrase';
+
+import GuessBlock from '../presentational_components/GuessBlock';
 
 const mapStateToProps = (state) => ({
     phrase: state.phrase
@@ -22,24 +22,11 @@ const Play = ({
 
     const Lost = hasLost(phrase);
     const Won = hasWon(phrase);
-    var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
     return (
         <div className="play-container">
             { !Lost && !Won &&
-            <div className="guess-block">
-                {
-                    alphabet.map((item, index) => {
-                    var classname = "guess-button";
-                    if(phrase.correctGuesses.includes(item.toLowerCase())) classname += " guessed-right";
-                    if(phrase.wrongGuesses.includes(item.toLowerCase())) classname += " guessed-wrong";
-                    return <button data-letter={ item } onClick={(e) => {
-                        e.preventDefault();
-                        const guess = e.target.getAttribute('data-letter').toLowerCase();
-                        dispatch(phraseGuess(guess, phrase.phrase));
-                        }} className={ classname } key={ index }>{ item }</button>
-                    })
-                }
-            </div>
+            <GuessBlock dispatch={dispatch} phrase={phrase}/>
             }
             <div className="puzzle-phrase">
                 { // Build the phrase in the DOM, will reflect new phrase structure

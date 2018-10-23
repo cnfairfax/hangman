@@ -8,7 +8,6 @@ const phrase = (
     },
     action
 ) => {
-    console.log(action.type);
     switch(action.type) {
         case 'SET_PHRASE_INPUT':
             return {
@@ -34,10 +33,8 @@ const phrase = (
                 ...state,
                 correctGuesses: [...state.correctGuesses, action.guess]
             }
-        // not triggering properly
         case'WRONG_PHRASE_GUESS':
             let misses = state.misses + 1
-            console.log('NUMBER OF MISSES: ' + misses)
             return {
                 ...state,
                 wrongGuesses: [...state.wrongGuesses, action.guess],

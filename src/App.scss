@@ -1,56 +1,6 @@
-body * {
-    box-sizing: border-box;
-    font-family: 'Roboto', 'sans-serif';
-}
-
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 40vmin;
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-
-  .content, .container{
-      display: flex;
-      flex-direction: column;
-  }
-
-  .container {
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-        
-      .nav {
-          display: flex;
-          flex-direction: row;
-          padding: 0;
-          justify-content: center;
-          align-items: center;
-
-          li {
-              list-style: none;
-              margin-left: 5px;
-          }
-      }
-  }
+@import './scss/globals';
+@import './scss/layout';
+@import './scss/navigation';
   
   .puzzle-phrase {
     display: flex;
@@ -73,14 +23,6 @@ body * {
       border-bottom: 5px solid #555;
       margin: auto 3px;
     }
-  }
-
-  .guessed-right {
-      background-color: green;
-  }
-
-  .guessed-wrong {
-      background-color: red;
   }
 
   form {
@@ -118,7 +60,7 @@ body * {
             transition: all .5s ease;
 
             &#phrase-setter {
-                background-color: green;
+                background-color: $green;
                 min-width: 50%;
 
                 &:hover {
@@ -128,7 +70,7 @@ body * {
             }
 
             &#phrase-clearer {
-                background-color: red;
+                background-color: $red;
                 min-width: 25%;
 
                 &:hover {
@@ -141,24 +83,24 @@ body * {
     }
   }
 
-  .play-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-
-      .guess-block {
-          display: flex;
-          max-width: 25%;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-
-          .guess-button {
-            font-size: 1.1em;
-            padding: 5px 10px;
-            margin-top: 10px;
-            margin-right: 10px;
-          }
-      }
+.play-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
+
+.guess-block {
+    display: flex;
+    max-width: 25%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .guess-button {
+        font-size: 1.1em;
+        padding: 5px 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+}
