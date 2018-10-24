@@ -1,0 +1,65 @@
+.button-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+
+    &.guess-block {
+        justify-content: center;
+    }
+
+    button {
+        font-size: 1.5em;
+        padding: 15px;
+        border-radius: 3px;
+        border: none;
+        color: $white;
+        transition: all .5s ease;
+        
+        &:focus {
+            outline: none;
+        }
+
+        &.large {
+            width: 100%;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        &.medium {
+            min-width: 50%;
+        }
+
+        &.guess {
+            padding: 20px 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            width: 100px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $grey;
+        }
+
+        &.go {
+            background-color: $green;
+
+            &:hover {
+                background-color: rgba( $green, .5 );
+            }
+        }
+
+        &.stop {
+            background-color: $red;
+
+            &:hover {
+                background-color: rgba( $red, .5 );
+            }
+        }
+
+    }
+}

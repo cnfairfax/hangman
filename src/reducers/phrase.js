@@ -19,7 +19,10 @@ const phrase = (
             return {
                 ...state,
                 phrase: undefined,
-                isSet: false
+                isSet: false,
+                misses: 0,
+                correctGuesses: [],
+                wrongGuesses: []
             }
         case 'CORRECT_PHRASE_GUESS':
             return {

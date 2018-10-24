@@ -4,12 +4,13 @@ body * {
 
 .content, .container {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 .container {
+  display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
   height: 100%; }
 
 .nav {
@@ -27,7 +28,8 @@ body * {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  max-width: 60%; }
 
 .puzzle-phrase {
   display: flex;
@@ -48,19 +50,10 @@ body * {
 
 .guess-block {
   display: flex;
-  max-width: 25%;
+  width: 100%;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center; }
-  .guess-block .guess-button {
-    font-size: 1.1em;
-    padding: 5px 10px;
-    margin-top: 10px;
-    margin-right: 10px; }
-    .guess-block .guess-button.right {
-      background-color: #33aa31; }
-    .guess-block .guess-button.wrong {
-      background-color: rgba(244, 66, 96, 0.9); }
 
 .done-block {
   width: 100%;
@@ -116,6 +109,8 @@ form {
   justify-content: space-between;
   align-items: center;
   margin-top: 30px; }
+  .button-block.guess-block {
+    justify-content: center; }
   .button-block button {
     font-size: 1.5em;
     padding: 15px;
@@ -123,6 +118,8 @@ form {
     border: none;
     color: #fff;
     transition: all .5s ease; }
+    .button-block button:focus {
+      outline: none; }
     .button-block button.large {
       width: 100%;
       padding: 20px;
@@ -130,13 +127,19 @@ form {
       margin-bottom: 15px; }
     .button-block button.medium {
       min-width: 50%; }
+    .button-block button.guess {
+      padding: 20px 0;
+      margin-top: 10px;
+      margin-right: 10px;
+      width: 100px; }
+    .button-block button:hover {
+      cursor: pointer;
+      background-color: #555; }
     .button-block button.go {
       background-color: #33aa31; }
       .button-block button.go:hover {
-        cursor: pointer;
-        background-color: #555; }
+        background-color: rgba(51, 170, 49, 0.5); }
     .button-block button.stop {
       background-color: rgba(244, 66, 96, 0.9); }
       .button-block button.stop:hover {
-        cursor: pointer;
-        background-color: #555; }
+        background-color: rgba(244, 66, 96, 0.5); }

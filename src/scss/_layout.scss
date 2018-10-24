@@ -6,11 +6,13 @@ body * {
 .content, .container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
+    display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    
     height: 100%;
 }

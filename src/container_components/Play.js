@@ -6,6 +6,7 @@ import { hasLost, hasWon } from '../helpers/win-loss';
 import hasPhrase from '../helpers/hasPhrase';
 
 import GuessBlock from '../presentational_components/GuessBlock';
+import clearPhrase from '../action_creators/clearPhrase';
 
 const mapStateToProps = (state) => ({
     phrase: state.phrase
@@ -25,9 +26,6 @@ const Play = ({
 
     return (
         <div className="play-container">
-            { !Lost && !Won &&
-            <GuessBlock dispatch={dispatch} phrase={phrase}/>
-            }
             <div className="puzzle-phrase">
                 { // Build the phrase in the DOM, will reflect new phrase structure
                     phrase.phrase.map((item, index) => {
@@ -44,8 +42,11 @@ const Play = ({
                     })
                 }
             </div>
-            { Won && <div className="done-block"><span className="status win">YOU WON!</span><div className="button-block"><button className="go large">Play Again</button></div></div> }
-            { Lost && <div className="done-block"><span className="status loss">You lost...</span><div className="button-block"><button className="go large">Play Again</button></div></div> }
+            { !Lost && !Won &&
+            <GuessBlock dispatch={dispatch} phrase={phrase}/>
+            }
+{ Won && <div className="done-block"><span className="status win">YOU WON!</span><div className="button-block"><button className="go large" onClick={ e => { dispatch(clearPhrase()) }}>Play Again</button></div></div> }
+            { Lost && <div className="done-block"><span className="status loss">You lost...</span><div className="button-block"><button className="go large" onClick={ e => { dispatch(clearPhrase()) }}>Play Again</button></div></div> }
         </div>
     );
 }
