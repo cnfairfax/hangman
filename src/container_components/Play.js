@@ -4,9 +4,9 @@ import SetPhraseForm from './SetPhraseForm';
 
 import { hasLost, hasWon } from '../helpers/win-loss';
 import hasPhrase from '../helpers/hasPhrase';
+import clearPhrase from '../action_creators/clearPhrase';
 
 import GuessBlock from '../presentational_components/GuessBlock';
-import clearPhrase from '../action_creators/clearPhrase';
 
 const mapStateToProps = (state) => ({
     phrase: state.phrase
@@ -43,9 +43,10 @@ const Play = ({
                 }
             </div>
             { !Lost && !Won &&
-            <GuessBlock dispatch={dispatch} phrase={phrase}/>
+                <GuessBlock dispatch={dispatch} phrase={phrase}/>
             }
-{ Won && <div className="done-block"><span className="status win">YOU WON!</span><div className="button-block"><button className="go large" onClick={ e => { dispatch(clearPhrase()) }}>Play Again</button></div></div> }
+            { // repitition, here. need to consolidate to game over component and toggle message via props
+                Won && <div className="done-block"><span className="status win">YOU WON!</span><div className="button-block"><button className="go large" onClick={ e => { dispatch(clearPhrase()) }}>Play Again</button></div></div> }
             { Lost && <div className="done-block"><span className="status loss">You lost...</span><div className="button-block"><button className="go large" onClick={ e => { dispatch(clearPhrase()) }}>Play Again</button></div></div> }
         </div>
     );
